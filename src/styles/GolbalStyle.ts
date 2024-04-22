@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+$GlobalBlack: #1E1E1E;
+$GlobalWhite: #FFFFFF;
+
 *,*::before, *::after{
     margin: 0;
     padding: 0;

@@ -18,4 +18,6 @@ export const Header = styled.header`
   z-index: 999;
 `;
 
-export const HeaderBtn = styled.button``;
+export const HeaderBtn = styled.button`
+  color: $GlobalBlack;
+`;
