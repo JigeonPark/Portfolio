@@ -1,9 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-$GlobalBlack: #1E1E1E;
-$GlobalWhite: #FFFFFF;
-
 *,*::before, *::after{
     margin: 0;
     padding: 0;
@@ -43,3 +40,25 @@ $GlobalWhite: #FFFFFF;
     /* box-shadow: inset 0px 0px 5px white; */
   }
   `;
+
+export const SubTitle = styled.p<{ color?: String }>`
+  font-size: 32px;
+  letter-spacing: 5%;
+  font-weight: bold;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: ${(props) => (props.color === "black" ? "#1e1e1e" : "#fff")};
+`;
+
+export const Title = styled(SubTitle)<{ color?: String }>`
+  font-size: 64px;
+  background-color: #fff;
+  color: transparent;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+`;
+
+export const MainText = styled.p<{ color?: String }>`
+  font-size: 20px;
+  color: ${(props) => (props.color === "black" ? "#1e1e1e" : "#fff")};
+`;
