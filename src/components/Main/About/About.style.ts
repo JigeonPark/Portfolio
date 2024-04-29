@@ -1,8 +1,9 @@
-import { BottomToZero, brightness0to100 } from "../../../styles/Animation";
+import { BottomToZero, brightness0to100 } from "@src/styles/Animation";
 import {
   GolbalMainText,
   GolbalSubTitle,
   GolbalTitle,
+  media,
 } from "../../../styles/Style";
 import styled from "styled-components";
 
@@ -22,6 +23,10 @@ export const BackBoard = styled.div<{ color: String }>`
   box-sizing: border-box;
   background-color: ${(props) =>
     props.color === "black" ? "#1e1e1e" : "#fff"};
+
+  ${media.mobile} {
+    height: 500px;
+  }
 `;
 
 export const ProfileContainer = styled.div`
@@ -31,6 +36,10 @@ export const ProfileContainer = styled.div`
   justify-content: center;
 
   width: 1000px;
+
+  ${media.mobile} {
+    width: 80vw;
+  }
 `;
 
 export const Title = styled(GolbalTitle)`

@@ -7,22 +7,22 @@ export interface contactInfoType {
 export const contactInfo = [
   {
     name: "Instagram",
-    imgSrc: "../../../public/svg/header/Instagram.svg",
+    imgSrc: "/Portfolio/public/images/header/Instagram.svg",
     link: "https://www.instagram.com/parkgroundgun/",
   },
   {
     name: "Linkedin",
-    imgSrc: "../../../public/svg/header/Linkdin.svg",
+    imgSrc: "/Portfolio/public/images/header/Linkdin.svg",
     link: "www.linkedin.com/in/jigeonpark",
   },
   {
     name: "Email",
-    imgSrc: "../../../public/svg/header/Mail.svg",
-    link: "mailto:jkj.zf.work@gmail.com",
+    imgSrc: "/Portfolio/public/images/header/Mail.svg",
+    link: "mailto:jkj.zf.work/Portfolio/gmail.com",
   },
   {
     name: "GitHub",
-    imgSrc: "../../../public/svg/header/GitHub.svg",
+    imgSrc: "/Portfolio/public/images/header/GitHub.svg",
     link: "https://github.com/JigeonPark",
   },
 ];

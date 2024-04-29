@@ -4,12 +4,13 @@ import {
   RightToLeft,
   TopToZero,
   brightness0to100,
-} from "../../../styles/Animation";
+} from "@src/styles/Animation";
 import {
   GolbalMainText,
   GolbalSubTitle,
   GolbalTitle,
-} from "../../../styles/Style";
+  media,
+} from "@src/styles/Style";
 import styled from "styled-components";
 
 export const About = styled.header`
@@ -43,18 +44,35 @@ export const BackBoard = styled.div<{ color: String }>`
     justify-content: center;
     gap: 36px;
   }
+
+  ${media.mobile} {
+    div {
+      gap: 20px;
+      align-items: center;
+      width: 150px;
+    }
+  }
 `;
 
 export const IntroduceTxt = styled(GolbalSubTitle)`
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   animation: ${TopToZero} 2s !important;
+  height: auto;
 `;
 
 export const Title = styled(GolbalTitle)`
   animation: ${brightness0to100} 5s !important;
+
+  ${media.mobile} {
+    text-align: center;
+  }
 `;
 
 export const MainText = styled(GolbalMainText)`
   color: #1e1e1e;
   animation: ${BottomToZero} 2s !important;
+
+  ${media.mobile} {
+    font-weight: bold;
+  }
 `;

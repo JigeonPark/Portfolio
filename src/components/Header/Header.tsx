@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import * as S from "./Header.style";
 import { useEffect, useRef, useState } from "react";
 import { contactInfo, contactInfoType } from "./contactInfo";
+import { isMobile } from "@src/Router";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -28,7 +29,9 @@ const Header = () => {
 
   useEffect(() => {
     borderRef.current!.style.transform = `translate(${
-      headerList.indexOf(`${path}`) * 128
+      isMobile
+        ? headerList.indexOf(`${path}`) * 73.333333
+        : headerList.indexOf(`${path}`) * 128
     }px, 0px)`;
 
     switch (path) {
@@ -48,10 +51,15 @@ const Header = () => {
 
       case headerList[3]:
         // document.body.style.overflow = "hidden";
-        headerRef.current!.style.height = "115px";
+        isMobile
+          ? (headerRef.current!.style.height = "65px")
+          : (headerRef.current!.style.height = "115px");
+
         return () => {
           // document.body.style.overflow = "unset";
-          headerRef.current!.style.height = "50px";
+          isMobile
+            ? (headerRef.current!.style.height = "30px")
+            : (headerRef.current!.style.height = "50px");
         };
     }
   }, [path]);
@@ -85,7 +93,7 @@ const Header = () => {
           return (
             <S.HeaderBtn
               key={i}
-              border={path === d}
+              border={`${path === d}`}
               onClick={() => {
                 setScrollFlag(true);
                 setPath(d);
@@ -104,7 +112,7 @@ const Header = () => {
           {contactInfo.map((d: contactInfoType) => {
             return (
               <img
-                src={`${d.imgSrc}`}
+                src={d.imgSrc}
                 alt={d.name}
                 key={d.name}
                 onClick={() => {
