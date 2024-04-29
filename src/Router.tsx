@@ -5,7 +5,7 @@ import Project from "./components/Project";
 
 export const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={"/Portfolio/"}>
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
