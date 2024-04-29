@@ -1,39 +1,36 @@
+import { Line } from "../../../styles/Style";
 import * as S from "./About.style";
 
 const About = () => {
   return (
-    <S.About>
-      <S.BackBoard color={"black"}>
+    <S.Resume>
+      <S.BackBoard color={"black"} style={{ paddingTop: "98px" }}>
         <S.Title>Jigeon Park</S.Title>
+        <S.Title style={{ fontSize: "32px" }}>JUNIOR DEVELOPER</S.Title>
+        <Line color={"white"} isVertical={false} />
+        <S.ProfileContainer>
+          <S.SubTitle color={"white"}>Profile</S.SubTitle>
+          <S.MainText>
+            A passionate junior developer focussing on creating and maximising
+            efficiency.
+            <br />
+            I have great experience in creating and collaborating on projects
+            that increase organisation, productivity and effectiveness. With
+            excellent inter-personal skills and self-reflective qualities, I am
+            a valuable team mate as well as independent work, capable of working
+            in a multitude of environments.
+            <br />
+            <br />
+            {/* Holding a current International Student Visa - expires on DATE */}
+            I am currently seeking a job.
+          </S.MainText>
+        </S.ProfileContainer>
       </S.BackBoard>
 
-      <S.BackBoard color={"white"}>
-        <div>
-          <S.IntroduceTxt>
-            I’m a Junior
-            <br />
-            Front-end Developer
-            <br />
-            from South Korea.
-          </S.IntroduceTxt>
-          <S.MainText>
-            Recently, I worked in front-end development in
-            <br />a company where is in South Korea.
-            <br />
-            <br />I have experience in front-end, back-end, and
-            <br />
-            embedded software development.
-            <br />
-            <br />I am interested in software, computer,
-            <br />
-            hardware, and embedded.
-            <br />
-            <br />
-            I’m a international student now.
-          </S.MainText>
-        </div>
-      </S.BackBoard>
-    </S.About>
+      <S.BackBoard color={"white"}></S.BackBoard>
+
+      <S.BackBoard color={"black"}></S.BackBoard>
+    </S.Resume>
   );
 };
 

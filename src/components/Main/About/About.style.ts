@@ -1,3 +1,4 @@
+import { BottomToZero, brightness0to100 } from "../../../styles/Animation";
 import {
   GolbalMainText,
   GolbalSubTitle,
@@ -5,38 +6,42 @@ import {
 } from "../../../styles/Style";
 import styled from "styled-components";
 
-export const About = styled.header`
+export const Resume = styled.header`
   display: flex;
   align-items: start;
+  flex-direction: column;
 `;
 
 export const BackBoard = styled.div<{ color: String }>`
-  width: 50vw;
-  height: 100vh;
+  width: 100vw;
+  height: 600px;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
 
+  box-sizing: border-box;
   background-color: ${(props) =>
     props.color === "black" ? "#1e1e1e" : "#fff"};
-
-  div {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    gap: 36px;
-  }
 `;
 
-export const IntroduceTxt = styled(GolbalSubTitle)`
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  /* color: #1e1e1e; */
+export const ProfileContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+
+  width: 1000px;
 `;
 
-export const Title = styled(GolbalTitle)``;
+export const Title = styled(GolbalTitle)`
+  /* animation: ${brightness0to100} 2s; */
+`;
+
+export const SubTitle = styled(GolbalSubTitle)`
+  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+`;
 
 export const MainText = styled(GolbalMainText)`
-  color: #1e1e1e;
+  color: #fff;
+  /* animation: ${BottomToZero} 2s; */
 `;

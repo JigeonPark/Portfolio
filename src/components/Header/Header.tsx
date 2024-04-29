@@ -10,11 +10,11 @@ const Header = () => {
   const headerRef = useRef<HTMLHeadElement>(null);
 
   const urlPath = location.pathname.split("/")[1];
-  const headerList = ["About", "Resume", "Project", "Contact"];
+  const headerList = ["Introduce", "About", "Project", "Contact"];
 
   const [path, setPath] = useState<String>(
     urlPath === ""
-      ? "About"
+      ? headerList[0]
       : urlPath.charAt(0).toUpperCase() + urlPath.slice(1)
   );
   const [scrollFlag, setScrollFlag] = useState<boolean>(true);
@@ -26,35 +26,31 @@ const Header = () => {
       });
   }
 
-  function handleOpenNewTab(url: string) {
-    window.open(url, "_blank", "noopener, noreferrer");
-  }
-
   useEffect(() => {
     borderRef.current!.style.transform = `translate(${
       headerList.indexOf(`${path}`) * 128
     }px, 0px)`;
 
     switch (path) {
-      case "About":
+      case headerList[0]:
         setScrollFlag(true);
         ScrollTo(0);
         break;
 
-      case "Resume":
+      case headerList[1]:
         setScrollFlag(true);
         ScrollTo(window.innerHeight);
         break;
 
-      case "Project":
-        navigate(`project`);
+      case headerList[2]:
+        navigate(headerList[2].toLowerCase());
         break;
 
-      case "Contact":
-        document.body.style.overflow = "hidden";
+      case headerList[3]:
+        // document.body.style.overflow = "hidden";
         headerRef.current!.style.height = "115px";
         return () => {
-          document.body.style.overflow = "unset";
+          // document.body.style.overflow = "unset";
           headerRef.current!.style.height = "50px";
         };
     }
@@ -62,13 +58,16 @@ const Header = () => {
 
   useEffect(() => {
     function handleScroll() {
-      if (urlPath !== "project") {
-        if (window.scrollY < window.innerHeight && path === "Resume") {
+      if (urlPath !== headerList[2]) {
+        if (window.scrollY < window.innerHeight && path === headerList[1]) {
           setScrollFlag(false);
-          setPath("About");
-        } else if (window.scrollY > window.innerHeight && path === "About") {
+          setPath(headerList[0]);
+        } else if (
+          window.scrollY > window.innerHeight &&
+          path === headerList[0]
+        ) {
           setScrollFlag(false);
-          setPath("Resume");
+          setPath(headerList[1]);
         }
       }
     }
@@ -90,7 +89,7 @@ const Header = () => {
               onClick={() => {
                 setScrollFlag(true);
                 setPath(d);
-                if (d === "Resume" || d === "About") navigate("/");
+                if (d === headerList[1] || d === headerList[0]) navigate("/");
               }}
             >
               {d}
@@ -109,7 +108,7 @@ const Header = () => {
                 alt={d.name}
                 key={d.name}
                 onClick={() => {
-                  handleOpenNewTab(`${d.link}`);
+                  window.open(d.link, "_blank", "noopener, noreferrer");
                 }}
               />
             );

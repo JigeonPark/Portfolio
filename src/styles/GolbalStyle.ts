@@ -26,18 +26,16 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-    width: 14px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-thumb {
     background-color: #A9A9A9;
     background-clip: padding-box;
-    border: 5px solid transparent;
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-track {
-       background-color: transparent
-    /* box-shadow: inset 0px 0px 5px white; */
+    display: none;
   }
   `;
