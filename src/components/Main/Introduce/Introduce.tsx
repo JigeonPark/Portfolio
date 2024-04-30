@@ -1,4 +1,3 @@
-import { isMobile } from "@src/Router";
 import * as S from "./Introduce.style";
 
 const Introduce = () => {
@@ -18,19 +17,15 @@ const Introduce = () => {
             from South Korea.
           </S.IntroduceTxt>
           <S.MainText>
-            Recently, I worked in front-end development in
-            {isMobile ? " " : <br />}a company which is in South Korea.
+            Recently, I worked in front-end development in a company which is in
+            South Korea.
             <br />
-            <br />I have experience in front-end, back-end, and
-            {isMobile ? " " : <br />}
-            embedded software development.
+            <br />I have experience in front-end, back-end, and embedded
+            software development.
             <br />
-            <br />I am interested in software, computer,
-            {isMobile ? " " : <br />}
-            hardware, and embedded.
+            <br />I am interested in software, computer, hardware, and embedded.
             <br />
             <br />
-            I’m a international student now.
           </S.MainText>
         </div>
       </S.BackBoard>

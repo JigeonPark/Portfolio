@@ -25,7 +25,7 @@ export const Header = styled.header`
     width: 300px;
     height: 30px;
     padding: 5px;
-    top: 20px;
+    top: 10px;
     left: calc(50% - 150px);
     border-radius: 15px;
   }

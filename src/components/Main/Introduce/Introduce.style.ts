@@ -39,7 +39,6 @@ export const BackBoard = styled.div<{ color: String }>`
 
   div {
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
     justify-content: center;
     gap: 36px;
@@ -70,6 +69,7 @@ export const Title = styled(GolbalTitle)`
 
 export const MainText = styled(GolbalMainText)`
   color: #1e1e1e;
+  max-width: 459px;
   animation: ${BottomToZero} 2s !important;
 
   ${media.mobile} {

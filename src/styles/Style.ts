@@ -24,8 +24,9 @@ export const GolbalSubTitle = styled.p<{ color?: String }>`
 
   ${media.mobile} {
     font-size: 16px;
-    letter-spacing: 0.5px;
-    min-height: 41px;
+    letter-spacing: 1px;
+    min-height: 45px;
+    /* min-height: 41px; */
   }
 `;
 
@@ -47,21 +48,35 @@ export const GolbalTitle = styled(GolbalSubTitle)<{ color?: String }>`
 export const GolbalMainText = styled.p`
   font-size: 20px;
   font-weight: bold;
+  letter-spacing: 1px;
 
   ${media.mobile} {
     font-size: 12px;
     line-height: 17px;
-    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+`;
+
+export const GolbalText = styled.p`
+  font-size: 14px;
+  font-weight: bold;
+  color: "#7F7F7F";
+  letter-spacing: 1px;
+
+  ${media.mobile} {
+    font-size: 9px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
   }
 `;
 
 export const Line = styled.hr<{ color?: String; vertical: String }>`
   border: 1px solid ${(props) => (props.color === "black" ? "#1e1e1e" : "#fff")};
   width: ${(props) => (props.vertical === "true" ? "1px" : "1000px")};
-  height: ${(props) => (props.vertical === "true" ? "600px" : "1px")};
+  height: ${(props) => (props.vertical === "true" ? "100%" : "1px")};
 
   ${media.mobile} {
     width: ${(props) => (props.vertical === "true" ? "1px" : "80vw")};
-    height: ${(props) => (props.vertical === "true" ? "80vh" : "1px")};
+    height: ${(props) => (props.vertical === "true" ? "100%" : "1px")};
   }
 `;
