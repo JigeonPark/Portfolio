@@ -1,7 +1,7 @@
 export interface SLsEVType {
   title: string;
   date?: string;
-  content: string | Array<String>;
+  content: string | string[];
 }
 
 export const SkillInfo: SLsEVType[] = [

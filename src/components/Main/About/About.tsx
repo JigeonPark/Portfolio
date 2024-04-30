@@ -8,7 +8,7 @@ import {
   SkillInfo,
   VolunteeringInfo,
 } from "./InfoList";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 
 const About = () => {
   return (
@@ -123,7 +123,7 @@ const Volunteering = () => {
   const [isHovering, setIsHovering] = useState<Array<boolean>>([false, false]);
 
   function setHoveringList(b: boolean, i: number) {
-    let tmp: SetStateAction<boolean[]> = [];
+    let tmp = [];
     [...isHovering].forEach(() => {
       tmp.push(false);
     });
@@ -154,9 +154,10 @@ const Volunteering = () => {
               }}
             >
               <br />
-              {d.content.map((data: string, idx: number) => {
-                return <li key={idx}>{data}</li>;
-              })}
+              {Array.isArray(d.content) &&
+                d.content.map((data: string, idx: number) => {
+                  return <li key={idx}>{data}</li>;
+                })}
             </S.DotText>
           </div>
         );
