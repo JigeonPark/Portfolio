@@ -19,7 +19,7 @@ export const contactInfo = [
   },
   {
     name: "Email",
-    imgSrc: "/portfolio/public/images/header/mail.svg",
+    imgSrc: "/images/header/mail.svg",
     link: "mailto:jkj.zf.work@gmail.com",
   },
   {
