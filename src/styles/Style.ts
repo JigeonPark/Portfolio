@@ -76,7 +76,7 @@ export const Line = styled.hr<{ color?: String; vertical: String }>`
   height: ${(props) => (props.vertical === "true" ? "100%" : "1px")};
 
   ${media.mobile} {
-    width: ${(props) => (props.vertical === "true" ? "1px" : "80vw")};
+    width: ${(props) => (props.vertical === "true" ? "1px" : "345px")};
     height: ${(props) => (props.vertical === "true" ? "100%" : "1px")};
   }
 `;

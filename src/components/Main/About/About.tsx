@@ -54,7 +54,7 @@ const About = () => {
             <S.SubTitle color={"black"}>Skills</S.SubTitle>
             {SkillInfo.map((d: SLsEVType, i: number) => {
               return (
-                <div key={i}>
+                <div key={i} style={{ marginBottom: "24px" }}>
                   <S.MainText>{d.title}</S.MainText>
                   <S.Text>{d.context}</S.Text>
                 </div>
@@ -73,7 +73,7 @@ const About = () => {
             </S.SubTitle>
             {LanguagesInfo.map((d: SLsEVType, i: number) => {
               return (
-                <div key={i}>
+                <div key={i} style={{ marginBottom: "24px" }}>
                   <S.MainText>{d.title}</S.MainText>
                   <S.Text>{d.context}</S.Text>
                 </div>
@@ -83,7 +83,7 @@ const About = () => {
             <S.SubTitle color={"black"}>Education</S.SubTitle>
             {EducationInfo.map((d: SLsEVType, i: number) => {
               return (
-                <div key={i}>
+                <div key={i} style={{ marginBottom: "24px" }}>
                   <S.MainText>{d.title}</S.MainText>
                   <S.Text>{d.context}</S.Text>
                 </div>
@@ -135,13 +135,17 @@ const WorkExperience = () => {
                     ? "260px"
                     : isHovering[i]
                     ? "180px"
-                    : "45px",
+                    : isMobile
+                    ? "37px"
+                    : "50px",
                 width:
                   isHovering[i] && isMobile
-                    ? "131.25px"
+                    ? "40vw"
                     : isHovering[i]
                     ? "431px"
-                    : "131.25px",
+                    : isMobile
+                    ? "100px"
+                    : "150px",
               }}
               key={i}
               onClick={() => {
@@ -151,7 +155,10 @@ const WorkExperience = () => {
               }}
             >
               <S.MainText color={"black"}>{d.title}</S.MainText>
-              <S.ExperienceText color={"black"}>
+              <S.ExperienceText
+                color={"black"}
+                // style={{ display: isHovering[i] ? "flex" : "none" }}
+              >
                 <div id="PD">
                   <div>{d.position}</div>
                   <div>{d.date}</div>

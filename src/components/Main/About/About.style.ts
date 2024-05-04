@@ -40,7 +40,7 @@ export const ProfileContainer = styled.div`
   width: 1000px;
 
   ${media.mobile} {
-    width: 80vw;
+    width: 345px;
   }
 `;
 
@@ -55,7 +55,7 @@ export const SecondeContainer = styled.div`
   box-sizing: border-box;
 
   ${media.mobile} {
-    width: 300px;
+    width: 345px;
   }
 `;
 
@@ -79,7 +79,7 @@ export const ItemContainer = styled.div`
   }
 
   ${media.mobile} {
-    width: 35vw;
+    width: 40vw;
 
     div {
       font-size: 11px;
@@ -113,13 +113,13 @@ export const VolunteeringText = styled.ul`
   color: "#7f7f7f";
 
   box-sizing: border-box;
-
   transition: 2s;
   overflow: hidden;
 
   div {
     padding-top: 10px;
     padding-left: 13px;
+    padding-bottom: 0px;
   }
 
   ${media.mobile} {
@@ -165,6 +165,11 @@ export const Company = styled.div`
 
   background-color: #fff;
   transition: 2s;
+
+  ${media.mobile} {
+    padding: 10px;
+    justify-content: start;
+  }
 `;
 
 export const ExperienceText = styled.div`
@@ -201,6 +206,22 @@ export const ExperienceText = styled.div`
     ul {
       box-sizing: border-box;
       padding-left: 13px;
+    }
+  }
+
+  ${media.mobile} {
+    div,
+    p {
+      font-size: 10px;
+    }
+
+    div[id="PD"] {
+      flex-direction: column;
+      justify-content: center;
+
+      div {
+        font-size: 10px;
+      }
     }
   }
 `;
