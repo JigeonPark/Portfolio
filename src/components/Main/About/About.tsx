@@ -12,7 +12,7 @@ import { useState } from "react";
 
 const About = () => {
   return (
-    <S.Resume>
+    <S.About>
       <S.BackBoard
         color={"black"}
         style={{
@@ -98,7 +98,7 @@ const About = () => {
           <Volunteering />
         </S.SecondeContainer>
       </S.BackBoard>
-    </S.Resume>
+    </S.About>
   );
 };
 
@@ -137,16 +137,30 @@ const Volunteering = () => {
       {VolunteeringInfo.map((d: SLsEVType, i: number) => {
         return (
           <div
-            style={{ cursor: "s-resize" }}
+            style={{ cursor: isHovering[i] ? "n-resize" : "s-resize" }}
             key={i}
-            onMouseOver={() => {
-              setHoveringList(true, i);
-            }}
-            onMouseOut={() => {
-              setHoveringList(false, i);
+            // onMouseOver={() => {
+            //   !isMobile && setHoveringList(true, i);
+            // }}
+            // onMouseOut={() => {
+            //   !isMobile && setHoveringList(false, i);
+            // }}
+            onClick={() => {
+              isHovering[i] === true
+                ? setHoveringList(false, i)
+                : setHoveringList(true, i);
             }}
           >
-            <S.MainText color={"white"}>{d.title}</S.MainText>
+            <S.TitleContainer>
+              <S.MainText color={"white"}>{d.title}</S.MainText>
+              <p
+                style={{
+                  transform: `rotate(${isHovering[i] ? "180" : "0"}deg)`,
+                }}
+              >
+                ▲
+              </p>
+            </S.TitleContainer>
             {d.date}
             <S.DotText
               style={{

@@ -30,7 +30,7 @@ export const LanguagesInfo: SLsEVType[] = [
   },
   {
     title: "English",
-    content: "Upper Beginner",
+    content: "Intermediate",
   },
 ];
 

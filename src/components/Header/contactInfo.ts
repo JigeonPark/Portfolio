@@ -7,7 +7,7 @@ export interface contactInfoType {
 export const contactInfo = [
   {
     name: "Instagram",
-    imgSrc: "/Portfolio/public/images/header/Instagram.svg",
+    imgSrc: "public/images/header/Instagram.svg",
     link: "https://www.instagram.com/parkgroundgun/",
   },
   {

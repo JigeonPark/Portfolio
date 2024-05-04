@@ -13,7 +13,7 @@ import {
 } from "@src/styles/Style";
 import styled from "styled-components";
 
-export const About = styled.header`
+export const Introduce = styled.header`
   display: flex;
   align-items: start;
 
@@ -57,6 +57,7 @@ export const IntroduceTxt = styled(GolbalSubTitle)`
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   animation: ${TopToZero} 2s !important;
   height: auto;
+  justify-content: start;
 `;
 
 export const Title = styled(GolbalTitle)`

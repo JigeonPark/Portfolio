@@ -8,10 +8,12 @@ import {
 } from "../../../styles/Style";
 import styled from "styled-components";
 
-export const Resume = styled.header`
+export const About = styled.header`
   display: flex;
   align-items: start;
   flex-direction: column;
+
+  overflow-x: hidden;
 `;
 
 export const BackBoard = styled.div<{ color: String }>`
@@ -129,6 +131,24 @@ export const DotText = styled.ul<{ color?: String }>`
       font-size: 11px;
       line-height: 17px;
       letter-spacing: 0.5px;
+    }
+  }
+`;
+
+export const TitleContainer = styled.div`
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  position: relative;
+
+  :nth-child(2) {
+    position: absolute;
+    right: -10px;
+    transition: 2s;
+
+    ${media.mobile} {
+      font-size: 10px;
+      right: -2px;
     }
   }
 `;

@@ -2,7 +2,7 @@ import * as S from "./Introduce.style";
 
 const Introduce = () => {
   return (
-    <S.About>
+    <S.Introduce>
       <S.BackBoard color={"black"}>
         <S.Title>Jigeon Park</S.Title>
       </S.BackBoard>
@@ -29,7 +29,7 @@ const Introduce = () => {
           </S.MainText>
         </div>
       </S.BackBoard>
-    </S.About>
+    </S.Introduce>
   );
 };
 
