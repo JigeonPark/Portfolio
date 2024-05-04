@@ -19,12 +19,12 @@ export const contactInfo = [
   },
   {
     name: "Email",
-    imgSrc: "/Portfolio/public/images/header/mail.svg",
-    link: "mailto:jkj.zf.work/Portfolio/gmail.com",
+    imgSrc: "/portfolio/public/images/header/mail.svg",
+    link: "mailto:jkj.zf.work@gmail.com",
   },
   {
     name: "GitHub",
-    imgSrc: "/Portfolio/public/images/header/gitHub.svg",
+    imgSrc: "/portfolio/public/images/header/gitHub.svg",
     link: "https://github.com/JigeonPark",
   },
 ];
