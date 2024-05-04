@@ -3,6 +3,8 @@ import * as S from "./About.style";
 import { isMobile } from "@src/Router";
 import {
   EducationInfo,
+  ExperienceInfo,
+  ExperienceType,
   LanguagesInfo,
   SLsEVType,
   SkillInfo,
@@ -54,7 +56,7 @@ const About = () => {
               return (
                 <div key={i}>
                   <S.MainText>{d.title}</S.MainText>
-                  <S.Text>{d.content}</S.Text>
+                  <S.Text>{d.context}</S.Text>
                 </div>
               );
             })}
@@ -73,7 +75,7 @@ const About = () => {
               return (
                 <div key={i}>
                   <S.MainText>{d.title}</S.MainText>
-                  <S.Text>{d.content}</S.Text>
+                  <S.Text>{d.context}</S.Text>
                 </div>
               );
             })}
@@ -83,7 +85,7 @@ const About = () => {
               return (
                 <div key={i}>
                   <S.MainText>{d.title}</S.MainText>
-                  <S.Text>{d.content}</S.Text>
+                  <S.Text>{d.context}</S.Text>
                 </div>
               );
             })}
@@ -103,6 +105,17 @@ const About = () => {
 };
 
 const WorkExperience = () => {
+  const [isHovering, setIsHovering] = useState<Array<boolean>>([true]);
+
+  function setHoveringList(b: boolean, i: number) {
+    let tmp = [];
+    [...isHovering].forEach(() => {
+      tmp.push(false);
+    });
+    tmp[i] = b;
+    setIsHovering(tmp);
+  }
+
   return (
     <S.ItemContainer>
       <S.SubTitle
@@ -111,16 +124,70 @@ const WorkExperience = () => {
       >
         Work Experience
       </S.SubTitle>
-      <div>
-        <S.MainText color={"white"}>Languages</S.MainText>
-        <S.Text>HTML, CSS, JavaScript, TypeScript, Python, C</S.Text>
-      </div>
+      <S.ExperienceContainer>
+        {ExperienceInfo.map((d: ExperienceType, i: number) => {
+          return (
+            <S.Company
+              style={{
+                cursor: isHovering[i] ? "n-resize" : "s-resize",
+                height:
+                  isHovering[i] && isMobile
+                    ? "260px"
+                    : isHovering[i]
+                    ? "180px"
+                    : "45px",
+                width:
+                  isHovering[i] && isMobile
+                    ? "131.25px"
+                    : isHovering[i]
+                    ? "431px"
+                    : "131.25px",
+              }}
+              key={i}
+              onClick={() => {
+                isHovering[i] === true
+                  ? setHoveringList(false, i)
+                  : setHoveringList(true, i);
+              }}
+            >
+              <S.MainText color={"black"}>{d.title}</S.MainText>
+              <S.ExperienceText color={"black"}>
+                <div id="PD">
+                  <div>{d.position}</div>
+                  <div>{d.date}</div>
+                </div>
+                <div>
+                  {d.context.map(
+                    (
+                      item: { subTitle: string; subContext: string[] },
+                      idx: number
+                    ) => {
+                      return (
+                        <div key={idx} id="detailContext">
+                          <p>{item.subTitle}</p>
+                          <ul>
+                            {item.subContext.map(
+                              (subItem: string, subIdx: number) => {
+                                return <li key={subIdx}>{subItem}</li>;
+                              }
+                            )}
+                          </ul>
+                        </div>
+                      );
+                    }
+                  )}
+                </div>
+              </S.ExperienceText>
+            </S.Company>
+          );
+        })}
+      </S.ExperienceContainer>
     </S.ItemContainer>
   );
 };
 
 const Volunteering = () => {
-  const [isHovering, setIsHovering] = useState<Array<boolean>>([false, false]);
+  const [isHovering, setIsHovering] = useState<Array<boolean>>([true]);
 
   function setHoveringList(b: boolean, i: number) {
     let tmp = [];
@@ -136,7 +203,7 @@ const Volunteering = () => {
       <S.SubTitle color={"white"}>Volunteering</S.SubTitle>
       {VolunteeringInfo.map((d: SLsEVType, i: number) => {
         return (
-          <div
+          <S.VolunteeringContainer
             style={{ cursor: isHovering[i] ? "n-resize" : "s-resize" }}
             key={i}
             // onMouseOver={() => {
@@ -151,29 +218,34 @@ const Volunteering = () => {
                 : setHoveringList(true, i);
             }}
           >
-            <S.TitleContainer>
-              <S.MainText color={"white"}>{d.title}</S.MainText>
-              <p
-                style={{
-                  transform: `rotate(${isHovering[i] ? "180" : "0"}deg)`,
-                }}
-              >
-                ▲
-              </p>
-            </S.TitleContainer>
-            {d.date}
-            <S.DotText
+            <S.MainText color={"white"}>{d.title}</S.MainText>
+            <p
+              id="arrow"
               style={{
-                height: isHovering[i] ? "150px" : "0px",
+                transform: `rotate(${isHovering[i] ? "180" : "0"}deg)`,
               }}
             >
-              <br />
-              {Array.isArray(d.content) &&
-                d.content.map((data: string, idx: number) => {
-                  return <li key={idx}>{data}</li>;
-                })}
-            </S.DotText>
-          </div>
+              ▲
+            </p>
+            <S.VolunteeringText
+              style={{
+                height:
+                  isHovering[i] && isMobile
+                    ? "260px"
+                    : isHovering[i]
+                    ? "180px"
+                    : "0px",
+              }}
+            >
+              {d.date}
+              <div>
+                {Array.isArray(d.context) &&
+                  d.context.map((data: string, idx: number) => {
+                    return <li key={idx}>{data}</li>;
+                  })}
+              </div>
+            </S.VolunteeringText>
+          </S.VolunteeringContainer>
         );
       })}
     </S.ItemContainer>
