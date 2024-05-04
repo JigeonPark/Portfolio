@@ -3,6 +3,7 @@ import * as S from "./Header.style";
 import { useEffect, useRef, useState } from "react";
 import { contactInfo, contactInfoType } from "./contactInfo";
 import { isMobile } from "@src/Router";
+import insta from "../../../public/";
 
 const Header = () => {
   const navigate = useNavigate();
