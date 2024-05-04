@@ -9,7 +9,7 @@ export const contactInfo = [
     name: "Instagram",
     // imgSrc: "public/images/header/instagram.svg",
     imgSrc:
-      "https://jigeonpark.github.io/Portfolio/images/header/instagram.svg",
+      "https://jigeonpark.github.io/portfolio/images/header/instagram.svg",
     link: "https://www.instagram.com/parkgroundgun/",
   },
   {
@@ -24,7 +24,7 @@ export const contactInfo = [
   },
   {
     name: "GitHub",
-    imgSrc: "/portfolio/public/images/header/gitHub.svg",
+    imgSrc: "https://jigeonpark.github.io/portfolio/images/header/gitHub.svg",
     link: "https://github.com/JigeonPark",
   },
 ];
