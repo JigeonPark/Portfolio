@@ -1,5 +1,3 @@
-import { SubTitle } from "./About.style";
-
 export interface SLsEVType {
   title: string;
   date?: string;
