@@ -1,7 +1,7 @@
 import * as S from "./Project.style";
 
 const Project = () => {
-  return <S.Project></S.Project>;
+  return <S.Project>making</S.Project>;
 };
 
 export default Project;

@@ -40,12 +40,12 @@ export const BottomToZero = keyframes`
   }
 `;
 
-export const brightness0to100 = keyframes`
+export const opacity0to1 = keyframes`
   from {
     opacity: 0;
   }
 
   to {
-    transform: 100;
+    opacity: 1;
   }
 `;

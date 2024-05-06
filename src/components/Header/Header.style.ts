@@ -12,8 +12,8 @@ export const Header = styled.header`
   box-sizing: border-box;
   padding: 8px;
   border-radius: 25px;
-  background: rgba(169, 169, 169, 0.7);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: rgba(169, 169, 169, 1);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
 
   position: fixed;
   left: calc(50% - 260px);
@@ -45,7 +45,7 @@ export const HeaderBtn = styled.button<{ border: String }>`
   color: ${(props) => (props.border === "true" ? "#1e1e1e" : "#fff")};
   transition: 1s;
   text-shadow: ${(props) =>
-    props.border === "true" ? "none" : "0px 4px 4px rgba(0, 0, 0, 0.25)"};
+    props.border === "true" ? "none" : "0px 4px 4px rgba(0, 0, 0, 0)"};
   font-size: 24px;
   font-weight: bold;
 

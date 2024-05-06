@@ -10,9 +10,19 @@ import {
   SkillInfo,
   VolunteeringInfo,
 } from "./InfoList";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import useIntersectionObsever from "@src/hooks/useIntersectionObsever";
 
 const About = () => {
+  const titleRef = useRef<HTMLDivElement>(null);
+  const isTitleInViewport = useIntersectionObsever(titleRef);
+
+  const secRef = useRef<HTMLHRElement>(null);
+  const isSecInViewport = useIntersectionObsever(secRef);
+
+  const thrRef = useRef<HTMLHRElement>(null);
+  const isThrInViewport = useIntersectionObsever(thrRef);
+
   return (
     <S.About>
       <S.BackBoard
@@ -25,14 +35,25 @@ const About = () => {
           flexDirection: "column",
         }}
       >
-        <S.Title>Jigeon Park</S.Title>
-        <S.Title style={{ fontSize: isMobile ? "16px" : "32px" }}>
+        <S.Title ref={titleRef} id={isTitleInViewport ? "opacity" : ""}>
+          Jigeon Park
+        </S.Title>
+        <S.Title
+          style={{ fontSize: isMobile ? "16px" : "32px" }}
+          id={isTitleInViewport ? "opacity" : ""}
+        >
           JUNIOR DEVELOPER
         </S.Title>
-        <Line color={"white"} vertical={"false"} />
+        <Line
+          color={"white"}
+          vertical={"false"}
+          id={isTitleInViewport ? "opacity" : ""}
+        />
         <S.ProfileContainer>
-          <S.SubTitle color={"white"}>Profile</S.SubTitle>
-          <S.MainText color={"white"}>
+          <S.SubTitle color={"white"} id={isTitleInViewport ? "opacity" : ""}>
+            Profile
+          </S.SubTitle>
+          <S.MainText color={"white"} id={isTitleInViewport ? "opacity" : ""}>
             A passionate junior developer focussing on creating and maximising
             efficiency.
             <br />I have great experience in creating and collaborating on
@@ -50,8 +71,8 @@ const About = () => {
 
       <S.BackBoard color={"white"}>
         <S.SecondeContainer>
-          <S.ItemContainer>
-            <S.SubTitle color={"black"}>Skills</S.SubTitle>
+          <S.ItemContainer id={isSecInViewport ? "leftAni" : ""}>
+            <S.SubTitle color={"black"}>SKILLS</S.SubTitle>
             {SkillInfo.map((d: SLsEVType, i: number) => {
               return (
                 <div key={i} style={{ marginBottom: "24px" }}>
@@ -62,14 +83,20 @@ const About = () => {
             })}
           </S.ItemContainer>
 
-          <Line color={"black"} vertical={"true"} />
+          <Line
+            color={"black"}
+            vertical={"true"}
+            id={isSecInViewport ? "opacity" : ""}
+            ref={secRef}
+            time={"4"}
+          />
 
-          <S.ItemContainer>
+          <S.ItemContainer id={isSecInViewport ? "rightAni" : ""}>
             <S.SubTitle
               color={"black"}
               style={{ marginBottom: isMobile ? "15px" : "0px" }}
             >
-              Languages Spoken
+              LANGUAGES SPOKEN
             </S.SubTitle>
             {LanguagesInfo.map((d: SLsEVType, i: number) => {
               return (
@@ -80,7 +107,7 @@ const About = () => {
               );
             })}
 
-            <S.SubTitle color={"black"}>Education</S.SubTitle>
+            <S.SubTitle color={"black"}>EDUCATION</S.SubTitle>
             {EducationInfo.map((d: SLsEVType, i: number) => {
               return (
                 <div key={i} style={{ marginBottom: "24px" }}>
@@ -94,9 +121,15 @@ const About = () => {
       </S.BackBoard>
 
       <S.BackBoard color={"black"}>
-        <S.SecondeContainer>
+        <S.SecondeContainer id={isThrInViewport ? "animation" : ""}>
           <WorkExperience />
-          <Line color={"white"} vertical={"true"} />
+          <Line
+            color={"white"}
+            vertical={"true"}
+            ref={thrRef}
+            id={isThrInViewport ? "opacity" : ""}
+            time={"4"}
+          />
           <Volunteering />
         </S.SecondeContainer>
       </S.BackBoard>
@@ -105,43 +138,43 @@ const About = () => {
 };
 
 const WorkExperience = () => {
-  const [isHovering, setIsHovering] = useState<Array<boolean>>([true]);
+  const [isDisplay, setIsDisplay] = useState<Array<boolean>>([true]);
 
   function setHoveringList(b: boolean, i: number) {
     let tmp = [];
-    [...isHovering].forEach(() => {
+    [...isDisplay].forEach(() => {
       tmp.push(false);
     });
     tmp[i] = b;
-    setIsHovering(tmp);
+    setIsDisplay(tmp);
   }
 
   return (
-    <S.ItemContainer>
+    <S.ItemContainer id="experience">
       <S.SubTitle
         color={"white"}
         style={{ marginBottom: isMobile ? "15px" : "0px" }}
       >
-        Work Experience
+        WORK EXPERIENCE
       </S.SubTitle>
       <S.ExperienceContainer>
         {ExperienceInfo.map((d: ExperienceType, i: number) => {
           return (
             <S.Company
               style={{
-                cursor: isHovering[i] ? "n-resize" : "s-resize",
+                cursor: isDisplay[i] ? "n-resize" : "s-resize",
                 height:
-                  isHovering[i] && isMobile
-                    ? "260px"
-                    : isHovering[i]
-                    ? "180px"
+                  isDisplay[i] && isMobile
+                    ? d.height[1]
+                    : isDisplay[i]
+                    ? d.height[0]
                     : isMobile
                     ? "37px"
                     : "50px",
                 width:
-                  isHovering[i] && isMobile
+                  isDisplay[i] && isMobile
                     ? "40vw"
-                    : isHovering[i]
+                    : isDisplay[i]
                     ? "431px"
                     : isMobile
                     ? "100px"
@@ -149,16 +182,13 @@ const WorkExperience = () => {
               }}
               key={i}
               onClick={() => {
-                isHovering[i] === true
+                isDisplay[i] === true
                   ? setHoveringList(false, i)
                   : setHoveringList(true, i);
               }}
             >
               <S.MainText color={"black"}>{d.title}</S.MainText>
-              <S.ExperienceText
-                color={"black"}
-                // style={{ display: isHovering[i] ? "flex" : "none" }}
-              >
+              <S.ExperienceText color={"black"}>
                 <div id="PD">
                   <div>{d.position}</div>
                   <div>{d.date}</div>
@@ -194,33 +224,27 @@ const WorkExperience = () => {
 };
 
 const Volunteering = () => {
-  const [isHovering, setIsHovering] = useState<Array<boolean>>([true]);
+  const [isDisplay, setIsDisplay] = useState<Array<boolean>>([true]);
 
   function setHoveringList(b: boolean, i: number) {
     let tmp = [];
-    [...isHovering].forEach(() => {
+    [...isDisplay].forEach(() => {
       tmp.push(false);
     });
     tmp[i] = b;
-    setIsHovering(tmp);
+    setIsDisplay(tmp);
   }
 
   return (
-    <S.ItemContainer>
-      <S.SubTitle color={"white"}>Volunteering</S.SubTitle>
+    <S.ItemContainer id="volunteering">
+      <S.SubTitle color={"white"}>VOLUNTEERING</S.SubTitle>
       {VolunteeringInfo.map((d: SLsEVType, i: number) => {
         return (
           <S.VolunteeringContainer
-            style={{ cursor: isHovering[i] ? "n-resize" : "s-resize" }}
+            style={{ cursor: isDisplay[i] ? "n-resize" : "s-resize" }}
             key={i}
-            // onMouseOver={() => {
-            //   !isMobile && setHoveringList(true, i);
-            // }}
-            // onMouseOut={() => {
-            //   !isMobile && setHoveringList(false, i);
-            // }}
             onClick={() => {
-              isHovering[i] === true
+              isDisplay[i] === true
                 ? setHoveringList(false, i)
                 : setHoveringList(true, i);
             }}
@@ -229,20 +253,24 @@ const Volunteering = () => {
             <p
               id="arrow"
               style={{
-                transform: `rotate(${isHovering[i] ? "180" : "0"}deg)`,
+                transform: `rotate(${isDisplay[i] ? "180" : "0"}deg)`,
               }}
             >
               ▲
             </p>
             <S.VolunteeringText
-              style={{
-                height:
-                  isHovering[i] && isMobile
-                    ? "260px"
-                    : isHovering[i]
-                    ? "180px"
-                    : "0px",
-              }}
+              style={
+                Array.isArray(d.height) && d.height
+                  ? {
+                      height:
+                        isDisplay[i] && isMobile
+                          ? d.height[1]
+                          : isDisplay[i]
+                          ? d.height[0]
+                          : "0px",
+                    }
+                  : undefined
+              }
             >
               {d.date}
               <div>

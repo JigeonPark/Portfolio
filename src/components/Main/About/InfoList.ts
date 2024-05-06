@@ -1,6 +1,7 @@
 export interface SLsEVType {
   title: string;
   date?: string;
+  height?: number[];
   context: string | string[];
 }
 
@@ -46,24 +47,17 @@ export const VolunteeringInfo: SLsEVType[] = [
   {
     title: "Python Grammar lecture - LIKELION US",
     date: "07.2023 ~ 09.2023",
-    context: [
-      "Teaching Python coding grammar to school students on a weekly basis",
-      "This required clear and sometimes assertive communication skills combined with a positive attitude and the ability to adapt quickly to student needs",
-    ],
-  },
-  {
-    title: "Python Grammar lecture - LIKELION US",
-    date: "07.2023 ~ 09.2023",
+    height: [90, 100],
     context: [
       "Teaching Python coding grammar to school students on a weekly basis",
     ],
   },
   {
-    title: "Python Grammar lecture - LIKELION US",
-    date: "07.2023 ~ 09.2023",
+    title: "Making Arduino Robots - School Club",
+    date: "04.2022 ~ 07.2022",
+    height: [90, 100],
     context: [
-      "Teaching Python coding grammar to school students on a weekly basis",
-      "This required clear and sometimes assertive communication skills combined with a positive attitude and the ability to adapt quickly to student needs",
+      "Coach other students to build and program Arduino robots as part of an external program",
     ],
   },
 ];
@@ -72,6 +66,7 @@ export interface ExperienceType {
   title: string;
   date: string;
   position: string;
+  height: number[];
   context: {
     subTitle: string;
     subContext: string[];
@@ -83,25 +78,33 @@ export const ExperienceInfo: ExperienceType[] = [
     title: "UNIVA",
     date: "01.2024 ~ 02.2024",
     position: "Front-end Developer",
+    height: [160, 160],
     context: [
       {
-        subTitle: "Web Task Management Development",
-        subContext: ["Flask, JavaScript, React.JS, MySQL", "Single~~"],
-      },
-      {
-        subTitle: "Web Task Management Development",
-        subContext: ["Flask, JavaScript, React.JS, MySQL", "Single~~"],
+        subTitle: "Company Homepage",
+        subContext: [
+          "Flask, JavaScript, React.JS, MySQL",
+          "Desktop, mobile view development",
+        ],
       },
     ],
   },
   {
     title: "CoSignOn",
     date: "07.2023 ~ 09.2023",
-    position: "Front-end Developer",
+    position: "Full Stack Developer",
+    height: [190, 205],
     context: [
       {
         subTitle: "Web Task Management Development",
-        subContext: ["Flask, JavaScript, React.JS, MySQL", "Single~~"],
+        subContext: [
+          "Flask, JavaScript, React.JS, MySQL",
+          "Single-handed development",
+        ],
+      },
+      {
+        subTitle: "QA - company program",
+        subContext: [],
       },
     ],
   },

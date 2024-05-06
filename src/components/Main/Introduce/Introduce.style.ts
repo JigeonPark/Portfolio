@@ -3,7 +3,7 @@ import {
   LeftToRight,
   RightToLeft,
   TopToZero,
-  brightness0to100,
+  opacity0to1,
 } from "@src/styles/Animation";
 import {
   GolbalMainText,
@@ -54,14 +54,14 @@ export const BackBoard = styled.div<{ color: String }>`
 `;
 
 export const IntroduceTxt = styled(GolbalSubTitle)`
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0);
   animation: ${TopToZero} 2s !important;
   height: auto;
   justify-content: start;
 `;
 
 export const Title = styled(GolbalTitle)`
-  animation: ${brightness0to100} 5s !important;
+  animation: ${opacity0to1} 5s !important;
 
   ${media.mobile} {
     text-align: center;

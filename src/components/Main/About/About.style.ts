@@ -1,4 +1,9 @@
-import { BottomToZero, brightness0to100 } from "@src/styles/Animation";
+import {
+  BottomToZero,
+  LeftToRight,
+  RightToLeft,
+  opacity0to1,
+} from "@src/styles/Animation";
 import {
   GolbalMainText,
   GolbalSubTitle,
@@ -39,6 +44,10 @@ export const ProfileContainer = styled.div`
 
   width: 1000px;
 
+  #opacity {
+    animation: ${opacity0to1} 3s;
+  }
+
   ${media.mobile} {
     width: 345px;
   }
@@ -53,6 +62,15 @@ export const SecondeContainer = styled.div`
   padding-top: 30px;
   padding-bottom: 30px;
   box-sizing: border-box;
+  &#animation {
+    #experience {
+      animation: ${LeftToRight} 1.5s;
+    }
+
+    #volunteering {
+      animation: ${RightToLeft} 1.5s;
+    }
+  }
 
   ${media.mobile} {
     width: 345px;
@@ -66,6 +84,12 @@ export const ItemContainer = styled.div`
   justify-content: center;
 
   width: 431px;
+  &#rightAni {
+    animation: ${RightToLeft} 1.5s;
+  }
+  &#leftAni {
+    animation: ${LeftToRight} 1.5s;
+  }
 
   div {
     display: flex;
@@ -90,7 +114,9 @@ export const ItemContainer = styled.div`
 `;
 
 export const Title = styled(GolbalTitle)`
-  /* animation: ${brightness0to100} 2s; */
+  &#opacity {
+    animation: ${opacity0to1} 3s;
+  }
 `;
 
 export const SubTitle = styled(GolbalSubTitle)`
@@ -145,7 +171,8 @@ export const VolunteeringContainer = styled.div`
 
     ${media.mobile} {
       font-size: 10px;
-      right: -2px;
+      right: -8px;
+      top: 8px;
     }
   }
 `;
@@ -157,11 +184,11 @@ export const ExperienceContainer = styled.div`
 export const Company = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 
   box-sizing: border-box;
   border-radius: 40px;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
 
   background-color: #fff;
   transition: 2s;
@@ -169,6 +196,7 @@ export const Company = styled.div`
   ${media.mobile} {
     padding: 10px;
     justify-content: start;
+    border-radius: 20px;
   }
 `;
 

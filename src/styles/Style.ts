@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { opacity0to1 } from "./Animation";
 
 const customMediaQuery = (maxWidth: number): string =>
   `@media (max-width: ${maxWidth}px)`;
@@ -70,7 +71,11 @@ export const GolbalText = styled.p`
   }
 `;
 
-export const Line = styled.hr<{ color?: String; vertical: String }>`
+export const Line = styled.hr<{
+  color?: String;
+  vertical: String;
+  time?: String;
+}>`
   border: 1px solid ${(props) => (props.color === "black" ? "#1e1e1e" : "#fff")};
   width: ${(props) => (props.vertical === "true" ? "1px" : "1000px")};
   height: ${(props) => (props.vertical === "true" ? "100%" : "1px")};
@@ -78,5 +83,10 @@ export const Line = styled.hr<{ color?: String; vertical: String }>`
   ${media.mobile} {
     width: ${(props) => (props.vertical === "true" ? "1px" : "345px")};
     height: ${(props) => (props.vertical === "true" ? "100%" : "1px")};
+  }
+
+  &#opacity {
+    animation-name: ${opacity0to1};
+    animation-duration: ${(props) => (props.time ? `${props.time}s` : "3s")};
   }
 `;
