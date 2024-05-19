@@ -17,7 +17,7 @@ export const Header = styled.header`
 
   position: fixed;
   left: calc(50% - 260px);
-  top: 20px;
+  top: 15px;
   z-index: 999;
   transition: 1s;
 

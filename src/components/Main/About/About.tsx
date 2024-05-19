@@ -162,7 +162,7 @@ const WorkExperience = () => {
           return (
             <S.Company
               style={{
-                cursor: isDisplay[i] ? "n-resize" : "s-resize",
+                cursor: isDisplay[i] ? "nw-resize" : "se-resize",
                 height:
                   isDisplay[i] && isMobile
                     ? d.height[1]

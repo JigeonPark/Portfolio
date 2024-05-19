@@ -178,7 +178,7 @@ export const VolunteeringContainer = styled.div`
 `;
 
 export const ExperienceContainer = styled.div`
-  gap: 10px;
+  gap: 13px;
 `;
 
 export const Company = styled.div`
