@@ -41,7 +41,7 @@ export const BackBoard = styled.div<{ color: String }>`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 36px;
+    gap: 30px;
   }
 
   ${media.mobile} {

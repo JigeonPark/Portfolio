@@ -10,22 +10,13 @@ const Introduce = () => {
       <S.BackBoard color={"white"}>
         <div>
           <S.IntroduceTxt color={"black"}>
-            I’m a Junior
+            A Junior
             <br />
             Front-end Developer
-            <br />
-            from South Korea.
           </S.IntroduceTxt>
           <S.MainText>
-            Recently, I worked in front-end development in a company which is in
-            South Korea.
-            <br />
-            <br />I have experience in front-end, back-end, and embedded
-            software development.
-            <br />
-            <br />I am interested in software, computer, hardware, and embedded.
-            <br />
-            <br />
+            A passionate junior developer focussing on creating and maximising
+            efficiency.
           </S.MainText>
         </div>
       </S.BackBoard>

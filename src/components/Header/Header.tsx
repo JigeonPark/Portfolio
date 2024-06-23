@@ -50,13 +50,14 @@ const Header = () => {
         break;
 
       case headerList[3]:
-        // document.body.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
         isMobile
           ? (headerRef.current!.style.height = "65px")
           : (headerRef.current!.style.height = "115px");
 
         return () => {
-          // document.body.style.overflow = "unset";
+          document.body.style.overflow = "unset";
+          document.body.style.overflowX = "hidden";
           isMobile
             ? (headerRef.current!.style.height = "30px")
             : (headerRef.current!.style.height = "50px");

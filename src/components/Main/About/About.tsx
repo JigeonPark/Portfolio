@@ -23,6 +23,12 @@ const About = () => {
   const thrRef = useRef<HTMLHRElement>(null);
   const isThrInViewport = useIntersectionObsever(thrRef);
 
+  function returnTitleViewport() {
+    return isSecInViewport && isTitleInViewport === false
+      ? true
+      : isTitleInViewport;
+  }
+
   return (
     <S.About>
       <S.BackBoard
@@ -35,25 +41,31 @@ const About = () => {
           flexDirection: "column",
         }}
       >
-        <S.Title ref={titleRef} id={isTitleInViewport ? "opacity" : ""}>
+        <S.Title ref={titleRef} id={returnTitleViewport() ? "opacity" : ""}>
           Jigeon Park
         </S.Title>
         <S.Title
           style={{ fontSize: isMobile ? "16px" : "32px" }}
-          id={isTitleInViewport ? "opacity" : ""}
+          id={returnTitleViewport() ? "opacity" : ""}
         >
           JUNIOR DEVELOPER
         </S.Title>
         <Line
           color={"white"}
           vertical={"false"}
-          id={isTitleInViewport ? "opacity" : ""}
+          id={returnTitleViewport() ? "opacity" : ""}
         />
         <S.ProfileContainer>
-          <S.SubTitle color={"white"} id={isTitleInViewport ? "opacity" : ""}>
+          <S.SubTitle
+            color={"white"}
+            id={returnTitleViewport() ? "opacity" : ""}
+          >
             Profile
           </S.SubTitle>
-          <S.MainText color={"white"} id={isTitleInViewport ? "opacity" : ""}>
+          <S.MainText
+            color={"white"}
+            id={returnTitleViewport() ? "opacity" : ""}
+          >
             A passionate junior developer focussing on creating and maximising
             efficiency.
             <br />I have great experience in creating and collaborating on
