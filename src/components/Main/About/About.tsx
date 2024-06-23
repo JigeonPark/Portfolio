@@ -66,13 +66,11 @@ const About = () => {
             color={"white"}
             id={returnTitleViewport() ? "opacity" : ""}
           >
-            A passionate junior developer focussing on creating and maximising
-            efficiency.
-            <br />I have great experience in creating and collaborating on
-            projects that increase organisation, productivity and effectiveness.
-            With excellent inter-personal skills and self-reflective qualities,
-            I am a valuable team mate as well as independent work, capable of
-            working in a multitude of environments.
+            I have great experience in creating and collaborating on projects
+            that increase organisation, productivity and effectiveness. With
+            excellent inter-personal skills and self-reflective qualities, I am
+            a valuable team mate as well as independent work, capable of working
+            in a multitude of environments.
             <br />
             <br />
             {/* Holding a current International Student Visa - expires on DATE */}

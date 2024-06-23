@@ -5,11 +5,11 @@ export interface contactInfoType {
 }
 
 export const contactInfo = [
-  {
-    name: "Instagram",
-    imgSrc: "images/header/instagram.svg",
-    link: "https://www.instagram.com/parkgroundgun/",
-  },
+  // {
+  //   name: "Instagram",
+  //   imgSrc: "images/instagram.svg",
+  //   link: "https://www.instagram.com/parkgroundgun/",
+  // },
   {
     name: "Linkedin",
     imgSrc: "images/linkdin.svg",

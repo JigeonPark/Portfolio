@@ -11,7 +11,7 @@ const Header = () => {
   const headerRef = useRef<HTMLHeadElement>(null);
 
   const urlPath = location.pathname.split("/")[1];
-  const headerList = ["Introduce", "About", "Project", "Contact"];
+  const headerList = ["Home", "About", "Project", "Contact"];
 
   const [path, setPath] = useState<String>(
     urlPath === ""

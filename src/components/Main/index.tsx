@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Introduce from "./Introduce";
+import Home from "./Home";
 import About from "./About";
 
 const Container = styled.div``;
@@ -7,7 +7,7 @@ const Container = styled.div``;
 const Main = () => {
   return (
     <Container>
-      <Introduce />
+      <Home />
       <About />
     </Container>
   );

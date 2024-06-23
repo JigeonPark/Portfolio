@@ -13,7 +13,7 @@ import {
 } from "@src/styles/Style";
 import styled from "styled-components";
 
-export const Introduce = styled.header`
+export const Home = styled.header`
   display: flex;
   align-items: start;
 
@@ -41,7 +41,7 @@ export const BackBoard = styled.div<{ color: String }>`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
   }
 
   ${media.mobile} {

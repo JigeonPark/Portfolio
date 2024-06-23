@@ -13,7 +13,7 @@ const Root = styled.div`
 
 export const Router = () => {
   return (
-    <BrowserRouter basename={"/Portfolio/"}>
+    <BrowserRouter basename={"/"}>
       <Root>
         <Header />
         <Routes>

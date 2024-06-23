@@ -1,8 +1,8 @@
-import * as S from "./Introduce.style";
+import * as S from "./Home.style";
 
-const Introduce = () => {
+const Home = () => {
   return (
-    <S.Introduce>
+    <S.Home>
       <S.BackBoard color={"black"}>
         <S.Title>Jigeon Park</S.Title>
       </S.BackBoard>
@@ -20,8 +20,8 @@ const Introduce = () => {
           </S.MainText>
         </div>
       </S.BackBoard>
-    </S.Introduce>
+    </S.Home>
   );
 };
 
-export default Introduce;
+export default Home;
